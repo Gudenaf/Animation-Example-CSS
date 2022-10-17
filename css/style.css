@@ -1,0 +1,100 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #111;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    position: relative;
+    width: 150px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin: -10px;
+}
+
+.circle:after {
+    position: absolute;
+    bottom: 12px;
+    content: "";
+    width: 15px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.circle:nth-child(1) {
+    border-right: 4px solid #f82eff;
+    border-bottom: 4px solid transparent;
+    animation: circling 2s linear infinite;
+}
+
+.circle:nth-child(1):after {
+    right: 12px;
+    background: #f82eff;
+    box-shadow: 0 0 30px 7px rgb(248, 46, 255);
+}
+
+@keyframes circling {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.circle:nth-child(2) {
+    border-left: 4px solid #ff2e2e;
+    border-bottom: 4px solid transparent;
+    animation: circling-revert 2s linear infinite -1s;
+}
+
+.circle:nth-child(2):after {
+    left: 12px;
+    background: #ff2e2e;
+    box-shadow: 0 0 30px 7px rgb(255, 46, 46);
+}
+
+@keyframes circling-revert {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.circle:nth-child(3) {
+    position: absolute;
+    top: -66.6%;
+    animation: circling-revert 2s linear infinite -3s;
+    border-right: 4px solid #18ffec;
+    border-top: 4px solid transparent;
+}
+
+.circle:nth-child(3):after {
+    right: 12px;
+    top: 12px;
+    bottom: unset;
+    background: #18ffec;
+    box-shadow: 0 0 30px 7px rgba(24, 255, 236, 1);
+}
+
+.text {
+    position: absolute;
+    bottom: -50%;
+    font: 400 1.5em/1 Consolas;
+    letter-spacing: 0.2em;
+    color: #fff;
+}
